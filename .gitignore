@@ -1,0 +1,109 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+.python-version
+
+# ===============================
+# FastAPI / ASGI
+# ===============================
+*.log
+logs/
+uvicorn.log
+gunicorn.log
+
+# ===============================
+# Alembic
+# ===============================
+alembic/versions/__pycache__/
+alembic.ini
+
+# (Optional) ignore auto-generated revision files
+# Comment this OUT if you want to track migrations
+# alembic/versions/*.py
+
+# ===============================
+# Environment & Secrets
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# Databases & Local Data
+# ===============================
+*.db
+*.sqlite3
+*.psql
+*.dump
+
+# ===============================
+# Caches & Temp
+# ===============================
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ===============================
+# Testing
+# ===============================
+.tox/
+.nox/
+
+# ===============================
+# Editors & IDEs
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ===============================
+# OS Files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Docker (optional)
+# ===============================
+docker-compose.override.yml
+
+# ===============================
+# AWS / Cloud / Credentials
+# ===============================
+*.pem
+*.key
+.aws/
+
+# ===============================
+# Node (if frontend exists)
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ===============================
+# Jupyter (if used)
+# ===============================
+.ipynb_checkpoints/
+test.py
