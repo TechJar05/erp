@@ -10,7 +10,9 @@ class Task(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     task_type = Column(Text, nullable=False)
     reference_type = Column(Text)
-    reference_id = Column(UUID(as_uuid=True))
+    reference_id = Column(UUID(as_uuid=True), nullable=True)
+    reference_name = Column(Text, nullable=True)
+
     priority = Column(Text)
     status = Column(Text)
     assigned_to = Column(UUID(as_uuid=True), ForeignKey("app_user.id"))
