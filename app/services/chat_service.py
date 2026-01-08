@@ -3,6 +3,8 @@ from app.models import ContextSession, DataContext
 from app.chat.metric_resolver import resolve_metric
 from app.services.inventory_analytics_service import InventoryAnalyticsService
 from app.services.sales_analytics_service import SalesAnalyticsService
+from app.chat.ai_intent_resolver import ai_resolve_intent
+
 
 class ChatService:
 
