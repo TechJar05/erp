@@ -27,14 +27,32 @@ def open_context(context_id: UUID, db: Session = Depends(get_db)):
     db.add(session)
     db.commit()
     db.refresh(session)
-    return session
+
+    return {
+        "session_id": session.id,
+        "context_id": session.data_context_id,
+        "context_name": session.data_context.name,
+        "created_at": session.created_at,
+        "last_active_at": session.last_active_at
+    }
 
 
 @router.get("")
 def list_sessions(db: Session = Depends(get_db)):
-    return (
+    sessions = (
         db.query(ContextSession)
         .filter(ContextSession.user_id == DUMMY_USER_ID)
         .order_by(ContextSession.last_active_at.desc())
         .all()
     )
+
+    return [
+        {
+            "session_id": s.id,
+            "context_id": s.data_context_id,
+            "context_name": s.data_context.name,
+            "created_at": s.created_at,
+            "last_active_at": s.last_active_at
+        }
+        for s in sessions
+    ]

@@ -7,6 +7,7 @@ from app.api.routes import (
     automation   # 👈 THIS MUST EXIST
 )
 from app.api.routes import dashboard
+from app.api.routes import dashboard_insights
 api_router = APIRouter()
 
 api_router.include_router(data_context.router)
@@ -14,5 +15,5 @@ api_router.include_router(context_session.router)
 api_router.include_router(analytics.router)
 api_router.include_router(chat.router)
 api_router.include_router(automation.router)  # 👈 THIS LINE
-
+api_router.include_router(dashboard_insights.router)
 api_router.include_router(dashboard.router)

@@ -2,7 +2,14 @@ import json
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+def get_openai_client():
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY not set")
+    return OpenAI(api_key=api_key)
+
+
+
 
 SYSTEM_PROMPT = """
 You are an intent classification system for an analytics platform.
@@ -52,7 +59,7 @@ Return one of the following JSON responses ONLY:
   "intent": "UNSUPPORTED"
 }}
 """
-
+    client = get_openai_client()
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         temperature=0,
