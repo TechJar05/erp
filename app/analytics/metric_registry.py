@@ -9,7 +9,7 @@ from app.analytics.production_planning import (
     PlannedByItemExecutor,
     PlannedByTypeExecutor
 )
-
+from app.analytics.production_execution import *
 
 # Metric → Executor mapping
 METRIC_EXECUTORS = {
@@ -35,4 +35,11 @@ METRIC_EXECUTORS = {
     "production_plan_trend": ProductionTrendExecutor(),
     "planned_by_item": PlannedByItemExecutor(),
     "planned_by_type": PlannedByTypeExecutor(),
+    
+    
+     "total_production_orders": TotalProductionOrdersExec(),
+  "in_progress_orders": InProgressOrdersExec(),
+  "delayed_orders": DelayedOrdersExec(),
+  "machine_utilization": MachineUtilizationExec(),
+  "production_status_distribution": ProductionStatusDistributionExec()
 }
