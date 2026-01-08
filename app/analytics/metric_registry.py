@@ -9,7 +9,9 @@ METRIC_EXECUTORS = {
     "stock_by_warehouse": InventoryAnalyticsService,
 
     # Sales metrics
-    "total_sales_orders": SalesAnalyticsService,
+   "total_sales_orders": SalesAnalyticsService,
     "open_sales_orders": SalesAnalyticsService,
+    "partial_sales_orders": SalesAnalyticsService,
+    "shipped_sales_orders": SalesAnalyticsService,
     "sales_by_customer": SalesAnalyticsService,
 }
