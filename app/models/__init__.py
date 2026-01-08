@@ -20,3 +20,4 @@ from .task import Task
 from .data_context import DataContext
 from .context_session import ContextSession
 from .automation_rule import AutomationRule
+from app.models.metric_metadata import MetricMetadata
