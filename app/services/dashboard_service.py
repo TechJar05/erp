@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from app.models import ContextSession, MetricMetadata
 from app.analytics.metric_registry import METRIC_EXECUTORS
+from app.services.dashboard_ai_service import DashboardAIService
 
 class DashboardService:
 
@@ -11,6 +12,7 @@ class DashboardService:
         ).first()
 
         context = session.data_context
+
         metadata_map = {
             m.metric_name: m
             for m in db.query(MetricMetadata)
@@ -25,6 +27,7 @@ class DashboardService:
             "tables": []
         }
 
+        # 🔹 BUILD DASHBOARD FIRST
         for metric in context.allowed_metrics:
             executor = METRIC_EXECUTORS.get(metric)
             meta = metadata_map.get(metric)
@@ -65,5 +68,11 @@ class DashboardService:
                     "title": meta.title,
                     "data": data
                 })
+
+        # 🔥 NOW call AI with full dashboard
+        response["ai_insights"] = DashboardAIService.generate_insights(
+            context_name=response["context"],
+            dashboard=response
+        )
 
         return response

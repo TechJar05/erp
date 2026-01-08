@@ -3,7 +3,8 @@ from app.api.router import api_router
 from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="ERP Analytics Platform")
-
+from dotenv import load_dotenv
+load_dotenv()
 # Allow CORS from any origin
 app.add_middleware(
     CORSMiddleware,
