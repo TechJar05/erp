@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from app.models import ContextSession, MetricMetadata
 from app.analytics.metric_registry import METRIC_EXECUTORS
 from app.services.dashboard_ai_service import DashboardAIService
+from fastapi.encoders import jsonable_encoder
 
 class DashboardService:
 
@@ -75,4 +76,5 @@ class DashboardService:
             dashboard=response
         )
 
-        return response
+        return jsonable_encoder(response)
+
